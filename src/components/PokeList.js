@@ -28,10 +28,12 @@ const PokeList = () => {
     }
   }, [currentPage])
 
+  // function call to go to next pg
   function goNextPage() {
     setCurrentPage(nextPage)
   }
 
+  // function call to return to prev pg
   function goPrevPage() {
     setCurrentPage(prevPage)
   }
@@ -39,9 +41,9 @@ const PokeList = () => {
   return(
     <div>
       Pokemon: Gotta catch em all! <br/>
-      {pokemon.map((name) => {
+      {pokemon.map((name, url) => {
         return (
-          <div><li key={pokemon.id}>{name}</li></div>
+          <div><li key={pokemon.id}><a href={url}>{name}</a></li></div>
         )
       })
       }
