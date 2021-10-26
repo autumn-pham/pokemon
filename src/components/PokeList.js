@@ -1,14 +1,13 @@
 import React from 'react';
-import './App.css';
 
-class App extends React.Component {
+class PokeList extends React.Component {
   render() {
     return (
       <div>
-        Pokemon
+        List of Pokemon
       </div>
     )
   }
 };
 
-export default App;
+export default PokeList;
