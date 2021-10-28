@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PokeList from './PokeList';
 
-const PokeDetail = () => {
+const PokeDetail = (props) => {
 
+
+
+  return(
+    <div>
+      Deets
+
+    </div>
+  )
 }
 
 export default PokeDetail;

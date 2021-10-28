@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Page from './Page';
 
-
-const PokeList = () => {
+const PokeList = (props) => {
   const [pokemon, setPokemon] = useState([]);
   const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon");
   const [nextPage, setNextPage] = useState();
   const [prevPage, setPrevPage] = useState();
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [selectedPokemon, setSelectedPokemon] = useState();
+  const [pokemonId, setPokemonId] = useState();
+  const [pokemonData, setPokemonData] = useState({});
 
   useEffect(() => {
     let cancel
@@ -20,6 +21,17 @@ const PokeList = () => {
       setNextPage(res.data.next)
       setPrevPage(res.data.previous)
       setPokemon(res.data.results.map(p => p.name))
+      setPokemonId(res.data.results.map(id => id.url))
+      // console.log(pokemonId);
+      let newPokemonData = {}
+      res.data.results.forEach((pokemon, url) => {
+        newPokemonData = {
+          name: pokemon.name,
+          pokemonId: pokemon.url
+        }
+      })
+      setPokemonData(newPokemonData)
+
     })
 
     // make sure any calls to axios if multiple are made before the request is completed gets cancelled
@@ -29,21 +41,32 @@ const PokeList = () => {
   }, [currentPage])
 
   // function call to go to next pg
-  function goNextPage() {
+  const goNextPage = () => {
     setCurrentPage(nextPage)
   }
 
   // function call to return to prev pg
-  function goPrevPage() {
+  const goPrevPage = () => {
     setCurrentPage(prevPage)
   }
+
+
+ const handleClick = () => {
+   axios
+   .get(`${pokemonData.pokemonId}`)
+   .then(res => {
+     setSelectedPokemon(res.data)
+     console.log(res.data)
+   })
+
+ }
 
   return(
     <div>
       Pokemon: Gotta catch em all! <br/>
-      {pokemon.map((name, url) => {
+      {pokemon.map((name) => {
         return (
-          <div><li key={pokemon.id}><a href={url}>{name}</a></li></div>
+          <div><li key={pokemon.url}><button onClick={handleClick}>{name}</button></li></div>
         )
       })
       }
