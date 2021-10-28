@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Page from './Page';
+import PokeDetail from './PokeDetail';
 
 const PokeList = (props) => {
   const [pokemon, setPokemon] = useState([]);
@@ -56,9 +57,8 @@ const PokeList = (props) => {
    .get(`${pokemonData.pokemonId}`)
    .then(res => {
      setSelectedPokemon(res.data)
-     console.log(res.data)
+     // console.log(res.data)
    })
-
  }
 
   return(
@@ -73,6 +73,10 @@ const PokeList = (props) => {
       <Page
         goNextPage={nextPage ? goNextPage : null}
         goPrevPage={prevPage ? goPrevPage : null}
+      />
+      <PokeDetail
+        pokemon={selectedPokemon}
+        onClick={handleClick}
       />
     </div>
   )
