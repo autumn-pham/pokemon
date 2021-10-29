@@ -1,0 +1,53 @@
+.container {
+  background-color: #dc143c;
+  border-radius: 25px;
+}
+
+.pokedex-container {
+  display: flex;
+  flex-direction: row
+}
+
+.display-left, .display-right {
+  width: 48%;
+}
+
+.display-right {
+  height: 50%;
+}
+
+.pokelist {
+  list-style-type: none;
+}
+
+.display-right {
+  border: 1em solid black;
+}
+
+.pokeball-img {
+  width: 5%;;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.vl {
+  border-left: 6px solid black;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: 10%;
+  top: 0;
+}
+
+.pages {
+  text-align: center;
+}
+
+.pokemon-btn, .pg-btn {
+  background-color: black;
+  color: white;
+}

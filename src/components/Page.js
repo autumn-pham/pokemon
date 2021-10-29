@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Page({ goNextPage, goPrevPage }) {
   return (
-    <div>
-      {goPrevPage && <button onClick={goPrevPage}>Previous</button>}
-      {goNextPage && <button onClick={goNextPage}>Next</button>}
+    <div className="pages">
+      {goPrevPage && <button onClick={goPrevPage} className="pg-btn">Previous</button>}
+      {goNextPage && <button onClick={goNextPage} className="pg-btn">Next</button>}
     </div>
   )
 }
