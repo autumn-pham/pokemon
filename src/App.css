@@ -5,7 +5,8 @@
 
 .pokedex-container, .flex-container {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .display-left {

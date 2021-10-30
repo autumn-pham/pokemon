@@ -7,7 +7,7 @@ const PokeDetail = ({ pokemon, onReset }) => {
       return(
         <div className="card display-right">
           <img src="https://assets.pokemon.com/assets/cms2/img/misc/countries/au/country_detail_pokemon.png" alt="pikachu" />
-          <h5>Click on a Pokemon to view details!</h5>
+          <h5>Click on a Pokémon to view details!</h5>
         </div>
       );
     } else {
@@ -17,7 +17,7 @@ const PokeDetail = ({ pokemon, onReset }) => {
             <h2 className="flex1">{pokemon.name}</h2>
             <button className="btn-close-white flex2" onClick={onReset}>X</button>
           </div>
-            <img src={pokemon.sprites.front_default} alt="pokemon img"/>
+            <img src={pokemon.sprites.front_default} className="pokemonimg" alt="pokemon img"/>
           <div className="pokedetails">
             <p>type: {pokemon.types[0].type.name}</p>
             <p>weight: {pokemon.weight} lbs</p>
