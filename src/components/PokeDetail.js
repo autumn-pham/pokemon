@@ -12,11 +12,21 @@ const PokeDetail = ({ pokemon, onReset }) => {
     } else {
       return(
         <div className="card display-right">
-          <button className="btn-close" onClick={onReset}></button>
-          <h2>{pokemon.name}</h2>
+          <div className="flex-container">
+            <h2 className="flex1">{pokemon.name}</h2>
+            <button className="btn-close flex2" onClick={onReset}></button>
+          </div>
             <img src={pokemon.sprites.front_default} alt="pokemon img"/>
+          <div className="pokedetails">
             <p>type: {pokemon.types[0].type.name}</p>
             <p>weight: {pokemon.weight} lbs</p>
+            <p>stats:</p>
+            {pokemon.stats.map(({base_stat,stat:{name}})=>
+            <ul>
+              <li>{name}:{base_stat}</li>
+            </ul>
+            )}
+          </div>
         </div>
       )
     }

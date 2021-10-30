@@ -1,9 +1,9 @@
 .container {
   background-color: #dc143c;
-  border-radius: 25px;
+  border-radius: 50px;
 }
 
-.pokedex-container {
+.pokedex-container, .flex-container {
   display: flex;
   flex-direction: row
 }
@@ -12,8 +12,18 @@
   width: 48%;
 }
 
+.flex1 {
+  width: 75%;
+  text-align: center;
+}
+
+.flex2 {
+  width: 20%;
+}
+
 .display-right {
   height: 50%;
+  border-radius: 25px;
 }
 
 .pokelist {
@@ -22,6 +32,7 @@
 
 .display-right {
   border: 1em solid black;
+  padding: 1em;
 }
 
 .pokeball-img {
@@ -31,9 +42,11 @@
 h1 {
   color: white;
   text-align: center;
+  margin: 1em;
+  padding-top: 1em;
 }
 
-.vl {
+/* .vl {
   border-left: 6px solid black;
   height: 100%;
   position: absolute;
@@ -41,13 +54,33 @@ h1 {
   margin-left: -3px;
   margin-top: 10%;
   top: 0;
+} */
+
+
+.pokedetails {
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  padding: 1em;
 }
 
 .pages {
   text-align: center;
+  padding-bottom: 1em;
 }
+
 
 .pokemon-btn, .pg-btn {
   background-color: black;
   color: white;
+}
+
+.pg-btn {
+  width: 20%;
+}
+
+.btn-close {
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 10%;
 }
