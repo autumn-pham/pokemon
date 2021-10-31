@@ -11,7 +11,7 @@ const App = () => {
   const [nextPage, setNextPage] = useState();
   const [prevPage, setPrevPage] = useState();
   const [selectedPokemon, setSelectedPokemon] = useState();
-  const [pokemonData, setPokemonData] = useState({});
+  const [pokemonData, setPokemonData] = useState();
 
   useEffect(() => {
     let cancel
@@ -22,27 +22,32 @@ const App = () => {
     .then(res => {
       setNextPage(res.data.next)
       setPrevPage(res.data.previous)
-      // setPokemon(res.data.results.map(p => p.name))
+      setPokemon(res.data.results);
 
       let newPokemonData = {}
-      let { data } = res
-      let { results } = data
-      results.forEach((pokemon, index) => {
+      res.data.results.forEach((pokemon, index) => {
         newPokemonData = {
           id: index + 1,
           name: pokemon.name,
           url: pokemon.url
         }
+
       })
 
       setPokemonData(newPokemonData)
 
-  //
-      setPokemon(res.data.results);
-  //     setSelectedUrl(res.data.results.map(u => u.url))
+      // const pokemons = res.data.results.map((data, index) => ({
+      //   id: index + 1,
+      //   name: data.name,
+      //   url: data.url
+      // }))
+      //
+      // setPokemon(pokemons)
+
+
     })
-  //   // console.log(pokemonData
-      console.log(pokemon);
+    console.log(pokemonData);
+    console.log(pokemon);
   //
   //   // make sure any calls to axios if multiple are made before the request is completed gets cancelled
     return () => {
@@ -94,7 +99,6 @@ const App = () => {
         />
       </div>
     )
-
 };
 
 export default App;

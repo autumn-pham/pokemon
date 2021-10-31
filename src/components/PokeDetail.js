@@ -19,8 +19,8 @@ const PokeDetail = ({ pokemon, onReset }) => {
           </div>
             <img src={pokemon.sprites.front_default} className="pokemonimg" alt="pokemon img"/>
           <div className="pokedetails">
-            <p>type: {pokemon.types[0].type.name}</p>
             <p>weight: {pokemon.weight} lbs</p>
+            <p>type(s): {pokemon.types.map(type => type.type.name).join(", ")}</p>
             <p>stats:</p>
             {pokemon.stats.map(({base_stat,stat:{name}})=>
             <ul>

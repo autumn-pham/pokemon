@@ -10,3 +10,4 @@ tech stack:
 
 
 user stories:
+User should be able to load page and see a list of 25 pokemon. Upon clicking on a name, user should be able to view details of the pokemon such as name, image, weight, types and stats. User should be able to click to the next page for the next 25 pokemon or click back to the previous 25.

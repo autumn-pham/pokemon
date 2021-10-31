@@ -56,6 +56,16 @@ hr {
   border: 2px solid black;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.pokemon-btn:hover, a:hover {
+  background-color: red;
+  color: white;
+}
+
 .flex-container, .pokedetails {
   background-color: black;
   color: white;

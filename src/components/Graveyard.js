@@ -21,3 +21,16 @@ const handleClick = ({name}) => {
 //   }
 // })
 // setPokemon(newPokemon)
+
+const [pokeUrl, setPokeUrl] = useState('')
+
+const link = res.data.results.map(l => l.url)
+setPokeURL(res.data.results.map(l => l.url))
+
+
+
+const pokemonData = []
+const pokemon = res.data.results.map(p => ({
+  name: p.name,
+  url: p.url
+}))
